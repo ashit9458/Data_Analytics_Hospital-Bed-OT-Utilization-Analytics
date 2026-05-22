@@ -1,0 +1,33 @@
+Dashboard Objectives
+Provide hospital management with:
+•	Real-time occupancy visibility
+•	Forecasted bed demand
+•	OT utilization analysis
+•	Department bottlenecks
+•	Wait time reduction insights
+________________________________________
+Dashboard Components
+VisualPurpose
+Gauge Chart	ICU occupancy percentage
+KPI Cards	Active patients / available beds
+Line Chart	Weekly forecast trend
+Heatmap	Department bottlenecks
+Drill-through	Department-level details
+Slicer	Ward / Department filter
+________________________________________
+Suggested Dashboard Pages
+Page 1 — Executive Overview
+•	Total occupied beds
+•	ICU utilization
+•	OT usage percentage
+•	Current active admissions
+________________________________________
+Page 2 — Department Analytics
+•	Department-wise occupancy
+•	Length of stay analysis
+•	OT scheduling efficiency
+________________________________________
+Page 3 — Forecasting Dashboard
+•	Next-week bed demand
+•	Forecast trends
+•	Predicted occupancy spikes
