@@ -1,0 +1,37 @@
+Objective
+Identify seasonality, bottlenecks, and admission patterns.
+________________________________________
+Python EDA Script
+File: src/exploratory_analysis.py
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load data
+
+df = pd.read_csv('../data/raw/hospital_admissions.csv')
+
+# Convert dates
+
+df['admission_date'] = pd.to_datetime(df['admission_date'])
+
+# Extract day of week
+
+df['day_of_week'] = df['admission_date'].dt.day_name()
+
+# Department-wise admissions
+
+department_counts = df['department'].value_counts()
+print(department_counts)
+
+# Admissions by weekday
+
+weekday_counts = df['day_of_week'].value_counts()
+print(weekday_counts)
+
+# Plot
+
+weekday_counts.plot(kind='bar')
+plt.title('Admissions by Day of Week')
+plt.xlabel('Day')
+plt.ylabel('Admissions')
+plt.show()
