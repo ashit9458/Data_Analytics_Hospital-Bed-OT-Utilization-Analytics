@@ -1,0 +1,21 @@
+Objective
+Automate daily data refresh from SQL Server to reporting layer.
+________________________________________
+ADF Pipeline Workflow
+SQL Server Source
+        ↓
+ADF Copy Activity
+        ↓
+Data Validation
+        ↓
+Processed Reporting Layer
+        ↓
+Power BI Refresh
+________________________________________
+ADF Activities
+Activity	Purpose
+Copy Activity	Load daily hospital data
+Stored Procedure	Validate occupancy metrics
+Lookup Activity	Fetch latest records
+Trigger	Daily scheduled refresh
+Failure Alert	Notify admin on ETL failure
