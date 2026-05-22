@@ -1,0 +1,39 @@
+Objective
+Calculate utilization metrics for hospital operations.
+________________________________________
+Bed Turnover Ratio Procedure
+File: sql/stored_procedures.sql
+CREATE PROCEDURE sp_bed_turnover_ratio
+AS
+BEGIN
+    SELECT
+        ward_name,
+        COUNT(discharge_date) * 1.0 / COUNT(DISTINCT bed_type) AS bed_turnover_ratio
+    FROM hospital_admissions
+    WHERE discharge_date IS NOT NULL
+    GROUP BY ward_name;
+END;
+________________________________________
+Average Length of Stay
+CREATE PROCEDURE sp_avg_length_of_stay
+AS
+BEGIN
+    SELECT
+        department,
+        AVG(DATEDIFF(day, admission_date, discharge_date)) AS avg_stay_days
+    FROM hospital_admissions
+    WHERE discharge_date IS NOT NULL
+    GROUP BY department;
+END;
+________________________________________
+OT Utilization Percentage
+CREATE PROCEDURE sp_ot_utilization
+AS
+BEGIN
+    SELECT
+        department,
+        SUM(ot_duration_hours) / (24 * COUNT(DISTINCT CAST(admission_date AS DATE))) * 100 AS ot_utilization_percentage
+    FROM hospital_admissions
+    WHERE ot_scheduled = 1
+    GROUP BY department;
+END;
