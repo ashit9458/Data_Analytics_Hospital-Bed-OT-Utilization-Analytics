@@ -1,0 +1,30 @@
+Objective
+Store anonymized patient admissions, discharges, and OT scheduling data.
+________________________________________
+Create Tables Script
+File: sql/create_tables.sql
+CREATE TABLE hospital_admissions (
+    admission_id INT IDENTITY(1,1),
+    patient_id INT,
+    department VARCHAR(100),
+    ward_name VARCHAR(100),
+    bed_type VARCHAR(50),
+    admission_date DATETIME,
+    discharge_date DATETIME,
+    ot_scheduled BIT,
+    ot_duration_hours FLOAT,
+    status VARCHAR(50)
+);
+________________________________________
+Sample Data Columns
+Column	Description
+patient_id	Unique patient identifier
+department	ICU / Cardiology / Neurology
+ward_name	Assigned ward
+bed_type	ICU / General / Emergency
+admission_date	Admission timestamp
+discharge_date	Discharge timestamp
+ot_scheduled	OT required or not
+ot_duration_hours	Surgery duration
+status	Active / Discharged
+________________________________________
